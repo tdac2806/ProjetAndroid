@@ -66,6 +66,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/loginDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Détails"
+        android:textColor="#FF0000"
+        android:visibility="invisible" />
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="10pt" />
@@ -79,4 +87,11 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/loginThemeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </LinearLayout>

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mon_application"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="@string/identifie_toi_avec_ton_pseudo"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -53,16 +53,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Pseudo"
-        android:textColorHint="#000000"
-        app:boxStrokeColor="#000000"
-        app:hintTextColor="#000000">
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/loginInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textColorHint="#000000" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +74,7 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="35pt"
-        android:backgroundTint="#000000"
+        android:backgroundTint="@color/black"
         android:text="@string/commencer"
         android:textAllCaps="false"
         android:textSize="18sp"

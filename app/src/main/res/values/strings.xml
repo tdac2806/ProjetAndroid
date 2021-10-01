@@ -2,4 +2,8 @@
     <string name="app_name">ProjetAndroid</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="commencer">Commencer</string>
+    <string name="identifie_toi_avec_ton_pseudo">Identifie toi avec ton pseudo</string>
+    <string name="mon_application">Mon Application</string>
 </resources>

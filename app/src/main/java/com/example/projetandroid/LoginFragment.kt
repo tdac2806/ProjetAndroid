@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.projetandroid.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
+
+    private val viewModel: AuthViewModel by viewModels()
 
     private var _binding: FragmentLoginBinding?=null
     private val binding get() = _binding!!
@@ -23,10 +26,13 @@ class LoginFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
+        val loginInput = binding.loginInput.toString()
 
         binding.loginButton.setOnClickListener {
-            //val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment(email = binding.inputEmail.text.toString())
-            //view.findNavController().navigate(action)
+            if(loginInput.isNotEmpty() && loginInput.isNotBlank()) {
+                //val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment(email = binding.inputEmail.text.toString())
+                //view.findNavController().navigate(action)
+            }
         }
 
         return view

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.projetandroid.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -30,8 +31,9 @@ class LoginFragment : Fragment() {
 
         binding.loginButton.setOnClickListener {
             if(loginInput.isNotEmpty() && loginInput.isNotBlank()) {
-                //val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment(email = binding.inputEmail.text.toString())
-                //view.findNavController().navigate(action)
+                viewModel.setLogin(loginInput)
+                val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment()
+                view.findNavController().navigate(action)
             }
         }
 

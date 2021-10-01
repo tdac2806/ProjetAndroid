@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="20pt"
+    tools:context=".AdminFragment">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
+    <TextView
+        android:id="@+id/adminTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administration"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60pt" />
+
+    <TextView
+        android:id="@+id/adminText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Met à jour la base de données des chats"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30pt" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Chat"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adminInputCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
+    <Button
+        android:id="@+id/adminButton"
+        app:cornerRadius="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="35pt"
+        android:backgroundTint="@color/black"
+        android:text="Valider"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30pt" />
+
+    <TextView
+        android:id="@+id/adminCatNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/adminCatText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chats"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+</LinearLayout>

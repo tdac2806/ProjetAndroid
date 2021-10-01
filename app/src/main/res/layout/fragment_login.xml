@@ -26,12 +26,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="80pt"
+        android:layout_height="40pt"
         android:src="@drawable/manette" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20pt" />
+        android:layout_height="50pt" />
 
     <TextView
         android:id="@+id/loginText"
@@ -73,9 +73,10 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35pt"
         android:backgroundTint="#000000"
         android:text="@string/commencer"
         android:textAllCaps="false"
+        android:textSize="18sp"
         app:cornerRadius="15dp" />
 </LinearLayout>

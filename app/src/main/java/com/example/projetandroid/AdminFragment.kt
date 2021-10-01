@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.example.projetandroid.databinding.FragmentAdminBinding
 
 class AdminFragment : Fragment() {
@@ -27,20 +28,22 @@ class AdminFragment : Fragment() {
         _binding = FragmentAdminBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        viewModel.login.observe(viewLifecycleOwner,
+            { newvalue ->  binding.adminTitle.text = newvalue
+            }
+        )
+
+        binding.adminBackArrow.setOnClickListener {
+            val action = AdminFragmentDirections.actionAdminFragmentToLoginFragment()
+            view.findNavController().navigate(action)
+        }
+
         return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.login.observe(viewLifecycleOwner,
-            { newvalue ->  binding.adminTitle.text = newvalue
-            }
-        )
     }
 
 }

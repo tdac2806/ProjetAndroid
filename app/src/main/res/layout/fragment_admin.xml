@@ -11,7 +11,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10pt" />
+        android:layout_height="20pt" />
+
+    <ImageView
+        android:id="@+id/adminBackArrow"
+        android:layout_width="10pt"
+        android:layout_height="10pt"
+        android:src="@drawable/arrow" />
 
     <TextView
         android:id="@+id/adminTitle"
@@ -25,7 +31,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60pt" />
+        android:layout_height="40pt" />
 
     <TextView
         android:id="@+id/adminText"

@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Palmarès"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?colorSecondary"
         android:textSize="48sp"
         android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
         android:id="@+id/homePlayButton"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="?colorSecondary"
         android:text="Jouer"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -73,10 +73,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Administration"
-            android:textColor="#000000"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:rippleColor="#000000" />
+            android:textColor="?colorSecondary"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -37,7 +37,6 @@ class AdminFragment : Fragment() {
             val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
             view.findNavController().navigate(action)
         }
-
         return view
     }
 

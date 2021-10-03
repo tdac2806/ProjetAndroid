@@ -27,6 +27,19 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        // Retrieves data from datasource
+        val playerNameList = Datasource(requireContext()).getPlayerNameList()
+        val playerScoreList = Datasource(requireContext()).getPlayerScoreList()
+
+        var recyclerView: RecyclerView = view.findViewById(R.id.rvPlayers);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = PlayerAdapter(playerNameList, playerScoreList)
+
+            return view
+        }
+
         binding.textButton.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
             view.findNavController().navigate(action)
@@ -35,22 +48,6 @@ class HomeFragment : Fragment() {
         binding.homePlayButton.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
             view.findNavController().navigate(action)
-        }
-
-        // Retrieves data from datasource
-        val playerNameList = Datasource(requireContext()).getPlayerNameList()
-        val playerScoreList = Datasource(requireContext()).getPlayerScoreList()
-
-        var recyclerView: RecyclerView = view.findViewById(R.id.rvPlayers);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.apply {
-            // set a LinearLayoutManager to handle Android
-            // RecyclerView behavior
-            layoutManager = LinearLayoutManager(activity)
-            // set the custom adapter to the RecyclerView
-            adapter = PlayerAdapter(playerNameList, playerScoreList)
-
-            return view
         }
     }
 }

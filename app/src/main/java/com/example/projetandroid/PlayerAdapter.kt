@@ -1,7 +1,5 @@
 package com.example.projetandroid
 
-
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +32,6 @@ class PlayerAdapter(val playerNameList: Array<String>, val playerScoreList: Arra
         return PlayerViewHolder(view)
     }
 
-    // Returns size of data list
-    /*override fun getItemCount(): Int {
-        return playerNameList.size
-    }*/
 
     override fun getItemCount(): Int {
         return if (playerNameList.size > limit) {

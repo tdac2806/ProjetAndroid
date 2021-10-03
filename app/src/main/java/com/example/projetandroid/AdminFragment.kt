@@ -34,7 +34,7 @@ class AdminFragment : Fragment() {
         )
 
         binding.adminBackArrow.setOnClickListener {
-            val action = AdminFragmentDirections.actionAdminFragmentToLoginFragment()
+            val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
             view.findNavController().navigate(action)
         }
 

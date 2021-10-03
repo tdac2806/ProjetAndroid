@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
                 viewModel.setLogin(loginInput)
                 binding.loginDetails.visibility = View.INVISIBLE
 
-                val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment()
+                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                 view.findNavController().navigate(action)
             } else {
                 binding.loginDetails.text = "Veuillez entrer un pseudo avec au moins 1 caractère"

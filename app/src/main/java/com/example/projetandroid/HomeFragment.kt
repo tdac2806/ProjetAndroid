@@ -31,6 +31,11 @@ class HomeFragment : Fragment() {
             view.findNavController().navigate(action)
         }
 
+        binding.homePlayButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
+            view.findNavController().navigate(action)
+        }
+
         return view
     }
 

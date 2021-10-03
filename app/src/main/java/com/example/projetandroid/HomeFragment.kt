@@ -20,12 +20,23 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.textButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
+            view.findNavController().navigate(action)
+        }
+
+        binding.homePlayButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
+            view.findNavController().navigate(action)
+        }
 
         // Retrieves data from datasource
         val playerNameList = Datasource(requireContext()).getPlayerNameList()
@@ -38,16 +49,6 @@ class HomeFragment : Fragment() {
             adapter = PlayerAdapter(playerNameList, playerScoreList)
 
             return view
-        }
-
-        binding.textButton.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
-            view.findNavController().navigate(action)
-        }
-
-        binding.homePlayButton.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
-            view.findNavController().navigate(action)
         }
     }
 }

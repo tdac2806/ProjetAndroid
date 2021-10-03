@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.example.projetandroid.databinding.FragmentAdminBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.projetandroid.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -36,7 +37,20 @@ class HomeFragment : Fragment() {
             view.findNavController().navigate(action)
         }
 
-        return view
-    }
+        // Retrieves data from datasource
+        val playerNameList = Datasource(requireContext()).getPlayerNameList()
+        val playerScoreList = Datasource(requireContext()).getPlayerScoreList()
 
+        var recyclerView: RecyclerView = view.findViewById(R.id.rvPlayers);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.apply {
+            // set a LinearLayoutManager to handle Android
+            // RecyclerView behavior
+            layoutManager = LinearLayoutManager(activity)
+            // set the custom adapter to the RecyclerView
+            adapter = PlayerAdapter(playerNameList, playerScoreList)
+
+            return view
+        }
+    }
 }

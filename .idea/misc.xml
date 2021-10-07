@@ -3,13 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.259375" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.259375" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/activity_main.xml" value="0.17083333333333334" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/fragment_admin.xml" value="0.24322916666666666" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/fragment_home.xml" value="0.24322916666666666" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/fragment_login.xml" value="0.23425925925925925" />
-        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/fragment_splash.xml" value="0.24322916666666666" />
+        <entry key="..\:/Bureau/Kotlin/ProjetAndroid/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Bureau/Kotlin/ProjetAndroid/app/src/main/res/layout/fragment_result.xml" value="0.22" />
+        <entry key="..\:/Bureau/Kotlin/ProjetAndroid/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
+        <entry key="..\:/Bureau/Kotlin/ProjetAndroid/app/src/main/res/layout/game_fragment.xml" value="0.24263038548752835" />
+        <entry key="..\:/pegazb/Documents/ESGI/Android_Kotlin/ProjetKotlin/ProjetAndroid/app/src/main/res/layout/fragment_login.xml" value="0.3136" />
       </map>
     </option>
   </component>

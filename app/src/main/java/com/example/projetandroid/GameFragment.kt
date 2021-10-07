@@ -1,85 +1,73 @@
 package com.example.projetandroid
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.room.Room
 import com.example.projetandroid.databinding.GameFragmentBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.projetandroid.db.GameDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
     private lateinit var binding: GameFragmentBinding
-
-    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
-        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
-
+    lateinit var db: GameDatabase
+    private lateinit var WordList: List<String>
+    private lateinit var username: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        db = Room.databaseBuilder(requireContext(), GameDatabase::class.java, "GameDatabase").build()
         binding = GameFragmentBinding.inflate(inflater, container, false)
-        Log.d("GameFragment", "GameFragment created/re-created!")
-        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.Envoyer.setOnClickListener { onSubmitWord() }
-        binding.Passer.setOnClickListener { onSkipWord() }
+        binding.Envoyer.setOnClickListener { onSubmitWord(view) }
+        binding.Passer.setOnClickListener { onSkipWord(view) }
         // Update the UI
         binding.score.text = "0"
         binding.Question.text = "0"
-        updateDataOnScreen()
+
+        GlobalScope.launch {
+            WordList = db.catDao().getAllCat()
+            viewModel.initWordList(WordList)
+            updateDataOnScreen()
+        }
+
     }
 
-    private fun onSubmitWord() {
+    private fun onSubmitWord(view :View) {
         val playerWord = binding.InputAnswer.text.toString()
         if (viewModel.isUserWordCorrect(playerWord)) {
             if (viewModel.nextWord()) {
                 updateDataOnScreen()
             } else {
-                scoreDialog()
+                scoreDialog(view)
             }
         }
     }
 
-    private fun onSkipWord() {
+    private fun onSkipWord(view :View) {
         if (viewModel.nextWord()) {
             updateDataOnScreen()
         } else {
-            scoreDialog()
+            scoreDialog(view)
         }
     }
 
-    private fun scoreDialog(){
-        var title : String
-        if(viewModel.score < allWordsList.size/2){
-            title = "Pas de chance !"
-        }
-        else
-        {
-            title = "Bravo"
-        }
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(title)
-            .setMessage("Ton score est : ${viewModel.score}")
-            .setCancelable(false)
-            .setPositiveButton("Rejouer") { _, _ ->
-                restartGame()
-            }
-            .setNegativeButton("Quitter"){_,_ ->
-                exitGame()
-            }
-            .show()
+    private fun scoreDialog(view :View) {
+        val score = viewModel.score
+        val action = GameFragmentDirections.actionGameFragmentToResultFragment(username = "Tristan",score = score)
+        view.findNavController().navigate(action)
     }
     private fun restartGame() {
         viewModel.reinitializeData()
@@ -92,7 +80,7 @@ class GameFragment : Fragment() {
 
     private fun updateDataOnScreen() {
         binding.InputAnswer.setText("")
-        binding.Mot.text = viewModel.currentScrambledWord.value
+        binding.Mot.text = viewModel.currentScrambledWord
         binding.score.text = viewModel.score.toString()
         binding.Question.text = viewModel.question.toString()
     }

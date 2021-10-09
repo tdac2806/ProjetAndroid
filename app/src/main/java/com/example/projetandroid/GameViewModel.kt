@@ -1,8 +1,5 @@
 package com.example.projetandroid
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -21,26 +18,25 @@ class GameViewModel : ViewModel(){
     val currentWordCount: Int
         get() = _currentWordCount
 
-    private val _currentScrambledWord = MutableLiveData<String>()
-    val currentScrambledWord : LiveData<String>
+    private lateinit var _currentScrambledWord: String
+    val currentScrambledWord : String
         get() = _currentScrambledWord
 
-    private var allWordsList: MutableList<String> = mutableListOf("Siamois","Persan",
-        "Angora","Main coon","sacré de Birmanie", "Sphinx", "Bleu")
+    private var allWordsList: MutableList<String> = mutableListOf()
 
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
 
     init {
-        Log.d("GameFragment", "GameViewModel created!")
-        getNextWord()
+
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("GameFragment", "GameViewModel destroyed!")
+fun initWordList(WordList:List<String>){
+    for(word in WordList){
+        allWordsList.add(word)
     }
-
+    getNextWord()
+}
     private fun getNextWord() {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
@@ -53,7 +49,7 @@ class GameViewModel : ViewModel(){
             getNextWord()
         } else {
             increaseQuestion()
-            _currentScrambledWord.value = String(tempWord)
+            _currentScrambledWord = String(tempWord)
             ++_currentWordCount
             wordsList.add(currentWord)
         }

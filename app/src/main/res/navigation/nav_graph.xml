@@ -33,19 +33,39 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/gameFragment"
-        android:name="com.example.projetandroid.GameFragment"
-        android:label="game_fragment"
-        tools:layout="@layout/game_fragment" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.projetandroid.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
         <action
             android:id="@+id/action_homeFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.projetandroid.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.projetandroid.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
     </fragment>
 </navigation>

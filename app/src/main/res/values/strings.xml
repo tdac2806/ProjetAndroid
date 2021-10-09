@@ -7,21 +7,4 @@
     <string name="identifie_toi_avec_ton_pseudo">Identifie toi avec ton pseudo</string>
     <string name="mon_application">Mon Application</string>
 
-    <string-array name="player_name_array">
-        <item>PlayerGamer</item>
-        <item>FoxxxyS</item>
-        <item>Sunflower</item>
-        <item>Crystal_rock</item>
-        <item>Petrichor</item>
-        <item>MrWhiskers</item>
-    </string-array>
-
-    <string-array name="player_score_array">
-        <item>89</item>
-        <item>67</item>
-        <item>22</item>
-        <item>89</item>
-        <item>32</item>
-        <item>41</item>
-    </string-array>
 </resources>

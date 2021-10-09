@@ -7,7 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM user ORDER BY maxscore DESC")
+    @Query("SELECT * FROM user WHERE IsAdmin = 0 ORDER BY maxscore DESC")
     fun getAllUsers(): List<User>
 
     @Query("SELECT score FROM user WHERE LOWER(username) = LOWER(:name)")

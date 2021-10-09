@@ -7,11 +7,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.room.Room
 import com.example.projetandroid.databinding.ActivityMainBinding
-import com.example.projetandroid.db.Cat
-import com.example.projetandroid.db.User
 import com.example.projetandroid.db.GameDatabase
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController

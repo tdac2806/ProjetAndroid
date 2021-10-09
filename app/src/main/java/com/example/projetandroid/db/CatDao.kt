@@ -16,10 +16,12 @@ interface CatDao {
     @Query("SELECT COUNT(*) FROM cat")
     fun countCat():Int
 
+    @Query("SELECT COUNT(*) FROM cat WHERE LOWER(name) = LOWER(:name)")
+    fun catExists(name:String):Int
 
     @Insert
     fun insert(vararg cat: Cat)
 
-    @Delete
-    fun delete(cat: Cat)
+    @Query("DELETE FROM cat WHERE LOWER(name) = LOWER(:name)")
+    fun delete(name:String)
 }

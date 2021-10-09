@@ -68,6 +68,10 @@ class ResultFragment : Fragment() {
             val action = ResultFragmentDirections.actionResultFragmentToGameFragment()
             view.findNavController().navigate(action)
         }
+        binding.InputExit.setOnClickListener {
+            activity?.finish()
+        }
+
 
     }
 }

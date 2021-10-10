@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.projetandroid.databinding.FragmentRemoveCatBinding
 import com.example.projetandroid.db.Cat
@@ -50,8 +52,23 @@ class RemoveCatFragment : Fragment() {
             }
             binding.removeCatNumber.text = db.catDao().countCat().toString()
             binding.removeCatInput.setText("")
-
+            var recyclerView: RecyclerView = view.findViewById(R.id.rvCats);
+            recyclerView.apply {
+                val updateCatsList = db.catDao().getAllCat()
+                adapter = CatAdapter(updateCatsList.toTypedArray())
+            }
         }
+
+        val catsList = db.catDao().getAllCat()
+        var recyclerView: RecyclerView = view.findViewById(R.id.rvCats);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = CatAdapter(catsList.toTypedArray())
+
+            return view
+        }
+
         return view
     }
 

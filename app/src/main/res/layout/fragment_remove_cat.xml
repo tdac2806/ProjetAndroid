@@ -42,10 +42,10 @@
         android:textColor="?colorSecondary"
         android:textSize="16sp" />
 
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30pt" />
-
+        android:layout_height="10pt" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextField"
@@ -80,26 +80,39 @@
         android:textSize="18sp"
         app:cornerRadius="15dp" />
 
-    <Space
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCats"
         android:layout_width="match_parent"
-        android:layout_height="30pt" />
+        android:layout_height="150dp">
 
-    <TextView
-        android:id="@+id/removeCatNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textAlignment="center"
-        android:textColor="?colorSecondary"
-        android:textSize="60sp"
-        android:textStyle="bold" />
+    </androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/removeCatNumberText"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chats"
-        android:textAlignment="center"
-        android:textColor="?colorSecondary"
-        android:textSize="18sp" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/removeCatNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="?colorSecondary"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/removeCatNumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Chats"
+            android:textAlignment="center"
+            android:textColor="?colorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

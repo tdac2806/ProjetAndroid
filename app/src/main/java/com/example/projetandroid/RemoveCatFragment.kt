@@ -72,10 +72,6 @@ class RemoveCatFragment : Fragment() {
         return view
     }
 
-    private suspend fun addCat() {
-
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

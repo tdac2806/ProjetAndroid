@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="20pt"
+    tools:context=".AddAdminFragment">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20pt" />
+
+    <ImageView
+        android:id="@+id/addAdminBackArrow"
+        android:layout_width="10pt"
+        android:layout_height="10pt"
+        android:src="@drawable/arrow" />
+
+    <TextView
+        android:id="@+id/addAdminTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administration"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40pt" />
+
+    <TextView
+        android:id="@+id/addAdminText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ajouter un administrateur"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/addAdminWarningText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(les scores de l'administrateur ne seront plus affichés dans le classement)"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="14sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addAdminInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?colorSecondary"
+            android:textColorHint="?colorSecondary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
+    <Button
+        android:id="@+id/addAdminButton"
+        android:layout_width="match_parent"
+        android:layout_height="35pt"
+        android:backgroundTint="?colorSecondary"
+        android:text="Ajouter"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="15dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUsers"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/addAdminNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="?colorSecondary"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/addAdminNumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Admins"
+            android:textAlignment="center"
+            android:textColor="?colorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

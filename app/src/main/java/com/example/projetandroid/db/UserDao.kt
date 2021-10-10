@@ -31,8 +31,14 @@ interface UserDao {
     @Query("SELECT COUNT(*) FROM user")
     fun countUser():Int
 
+    @Query("SELECT COUNT(*) FROM user WHERE IsAdmin = 1")
+    fun countAdmin():Int
+
     @Query("SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM user WHERE LOWER(username) = LOWER(:name) AND IsAdmin = 1")
     fun isUserAdmin(name:String):Boolean
+
+    @Query("UPDATE USER SET IsAdmin = 1 WHERE LOWER(username) = LOWER(:name)")
+    fun setUserAdmin(name:String)
 
     @Query("DELETE FROM user")
     fun deleteAll()

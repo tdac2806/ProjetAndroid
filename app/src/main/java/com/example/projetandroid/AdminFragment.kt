@@ -46,6 +46,11 @@ class AdminFragment : Fragment() {
             val action = AdminFragmentDirections.actionAdminFragmentToRemoveCatFragment()
             view.findNavController().navigate(action)
         }
+
+        binding.adminAddAdminButton.setOnClickListener {
+            val action = AdminFragmentDirections.actionAdminFragmentToAddAdminFragment()
+            view.findNavController().navigate(action)
+        }
         return view
     }
 

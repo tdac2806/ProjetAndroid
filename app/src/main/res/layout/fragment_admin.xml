@@ -76,4 +76,14 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/adminAddAdminButton"
+        android:layout_width="match_parent"
+        android:layout_height="35pt"
+        android:backgroundTint="?colorSecondary"
+        android:text="Ajouter un administrateur"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="15dp" />
 </LinearLayout>

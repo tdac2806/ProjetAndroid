@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="20pt"
+    tools:context=".RemoveCatFragment">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20pt" />
+
+    <ImageView
+        android:id="@+id/removeCatBackArrow"
+        android:layout_width="10pt"
+        android:layout_height="10pt"
+        android:src="@drawable/arrow" />
+
+    <TextView
+        android:id="@+id/removeCatTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administration"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40pt" />
+
+    <TextView
+        android:id="@+id/removeCatText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retire un chat de la base de données"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="16sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30pt" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Chat"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/removeCatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?colorSecondary"
+            android:textColorHint="?colorSecondary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
+    <Button
+        android:id="@+id/removeCatButton"
+        android:layout_width="match_parent"
+        android:layout_height="35pt"
+        android:backgroundTint="?colorSecondary"
+        android:text="Retirer"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="15dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30pt" />
+
+    <TextView
+        android:id="@+id/removeCatNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/removeCatNumberText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chats"
+        android:textAlignment="center"
+        android:textColor="?colorSecondary"
+        android:textSize="18sp" />
+</LinearLayout>

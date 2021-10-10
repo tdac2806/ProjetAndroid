@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.room.Room
-import com.example.projetandroid.databinding.FragmentAdminBinding
+import com.example.projetandroid.databinding.FragmentAddCatBinding
 import com.example.projetandroid.db.Cat
 import com.example.projetandroid.db.GameDatabase
 
-class AdminFragment : Fragment() {
+class AddCatFragment : Fragment() {
 
     private val viewModel: AuthViewModel by activityViewModels()
 
-    private var _binding: FragmentAdminBinding? = null
+    private var _binding: FragmentAddCatBinding? = null
     private val binding get() = _binding!!
     lateinit var db: GameDatabase
 
@@ -29,25 +29,28 @@ class AdminFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAdminBinding.inflate(inflater, container, false)
+        _binding = FragmentAddCatBinding.inflate(inflater, container, false)
         val view = binding.root
         db = Room.databaseBuilder(requireContext(), GameDatabase::class.java, "GameDatabase")
             .allowMainThreadQueries().build()
 
-        binding.adminCatNumber.text = db.catDao().countCat().toString()
-        binding.adminBackArrow.setOnClickListener {
-            val action = AdminFragmentDirections.actionAdminFragmentToHomeFragment()
+        binding.addCatNumber.text = db.catDao().countCat().toString()
+        binding.addCatBackArrow.setOnClickListener {
+            val action = AddCatFragmentDirections.actionAddCatFragmentToAdminFragment()
             view.findNavController().navigate(action)
         }
 
-        binding.adminAddCatButton.setOnClickListener {
-            val action = AdminFragmentDirections.actionAdminFragmentToAddCatFragment()
-            view.findNavController().navigate(action)
-        }
+        binding.addCatButton.setOnClickListener {
+            val catName = binding.addCatInput.text.toString()
+            if (catName.isNotEmpty() && catName.isNotBlank()) {
+                var currentCat: Cat = Cat(catName)
+                if (db.catDao().catExists(currentCat.name) == 0) {
+                    db.catDao().insert(currentCat)
+                }
+            }
+            binding.addCatNumber.text = db.catDao().countCat().toString()
+            binding.addCatInput.setText("")
 
-        binding.adminRemoveCatButton.setOnClickListener {
-            val action = AdminFragmentDirections.actionAdminFragmentToRemoveCatFragment()
-            view.findNavController().navigate(action)
         }
         return view
     }

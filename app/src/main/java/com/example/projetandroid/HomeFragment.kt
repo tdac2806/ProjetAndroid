@@ -36,9 +36,11 @@ class HomeFragment : Fragment() {
         viewModel.login.observe(viewLifecycleOwner,
             { newvalue ->
                 username = newvalue.toString()
+                binding.homeWelcomeText.text = "Bonjour ${newvalue.toString()} !"
             }
         )
-        binding.textButton.setOnClickListener {
+
+            binding.textButton.setOnClickListener {
             if (db.userDao().isUserAdmin(username)) {
                 val action = HomeFragmentDirections.actionHomeFragmentToAdminFragment()
                 view.findNavController().navigate(action)
@@ -48,6 +50,11 @@ class HomeFragment : Fragment() {
 
         binding.homePlayButton.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToGameFragment()
+            view.findNavController().navigate(action)
+        }
+
+        binding.homeLogout.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
             view.findNavController().navigate(action)
         }
         val UsersList = db.userDao().getAllUsers()

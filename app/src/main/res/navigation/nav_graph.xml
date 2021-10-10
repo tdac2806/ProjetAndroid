@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_homeFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -67,5 +70,8 @@
         <argument
             android:name="score"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_resultFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

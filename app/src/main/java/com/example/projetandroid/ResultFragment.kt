@@ -64,7 +64,9 @@ class ResultFragment : Fragment() {
             view.findNavController().navigate(action)
         }
         binding.InputExit.setOnClickListener {
-            activity?.finish()
+            //activity?.finish()
+            val action = ResultFragmentDirections.actionResultFragmentToHomeFragment()
+            view.findNavController().navigate(action)
         }
 
 

@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.room.Room
 import com.example.projetandroid.databinding.FragmentAddCatBinding
@@ -13,8 +12,6 @@ import com.example.projetandroid.db.Cat
 import com.example.projetandroid.db.GameDatabase
 
 class AddCatFragment : Fragment() {
-
-    private val viewModel: AuthViewModel by activityViewModels()
 
     private var _binding: FragmentAddCatBinding? = null
     private val binding get() = _binding!!
@@ -34,6 +31,8 @@ class AddCatFragment : Fragment() {
         db = Room.databaseBuilder(requireContext(), GameDatabase::class.java, "GameDatabase")
             .allowMainThreadQueries().build()
 
+
+        //All bindings
         binding.addCatNumber.text = db.catDao().countCat().toString()
         binding.addCatBackArrow.setOnClickListener {
             val action = AddCatFragmentDirections.actionAddCatFragmentToAdminFragment()
@@ -53,10 +52,6 @@ class AddCatFragment : Fragment() {
 
         }
         return view
-    }
-
-    private suspend fun addCat() {
-
     }
 
     override fun onDestroyView() {

@@ -13,6 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="20pt" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/loginClose"
+            android:layout_width="10pt"
+            android:layout_height="10pt"
+            app:srcCompat="@drawable/close"/>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10pt" />
+
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="match_parent"
@@ -26,12 +47,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="40pt"
+        android:layout_height="30pt"
         android:src="@drawable/manette" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50pt" />
+        android:layout_height="40pt" />
 
     <TextView
         android:id="@+id/loginText"

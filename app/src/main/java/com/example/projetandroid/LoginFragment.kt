@@ -33,6 +33,11 @@ class LoginFragment : Fragment() {
         val view = binding.root
         db = Room.databaseBuilder(requireContext(), GameDatabase::class.java, "GameDatabase")
             .allowMainThreadQueries().build()
+
+        binding.loginClose.setOnClickListener {
+            activity?.finish()
+        }
+
         binding.loginButton.setOnClickListener {
             val loginInput = binding.loginInput.text.toString()
             val passwordInput = binding.passwordInput.text.toString()
